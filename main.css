@@ -3,10 +3,13 @@ body {
     background: linear-gradient(#555, #aaa);
 }
 
+#button-container {
+    display: grid;
+    place-items: center;
+    margin-bottom: 2vw;
+}
+
 button {
-    width: 10vw;
-    height: 4vw;
-    font-size: 1.8vw;
     color: white;
     background: #338;
     border: 1px solid white;
@@ -18,11 +21,7 @@ button {
 
 .faceDown {
     display: grid;
-    width: 12vw;
-    height: 18vw;
-    place-items: center;
     background: #722;
-    /* color:#722; */
     font-size: 0vw;
     border-top-right-radius: 1vw;
     border-top-left-radius: 1vw;
@@ -37,8 +36,6 @@ button {
 
 .faceUp {
     display: grid;
-    width: 12vw;
-    height: 18vw;
     place-items: center;
     background: white;
     font-size: 10vw;
@@ -55,14 +52,51 @@ button {
 
 #card-container {
     display: grid;
-    position: relative;
-    grid-template-columns: repeat(6, 12vw);
-    grid-template-rows: repeat(2, 20vw);
-    grid-gap: 3%;
-    top: 3%;
+    /* place-items: center; */
+    place-content: center;
+    align-items: center;
+    grid-gap: 3vw;
+    top: 2vw;
     /* border: 1px solid black; */
 }
 
 .endGame {
     font-size: 6vw;
+}
+
+@media (max-width: 600px) {
+    .buttonSize {
+        width: 15vw;
+        height: 6vw;
+        font-size: 2.7vw;
+    }
+
+    .cardSize {
+        width: 18vw;
+        height: 27vw;
+    }
+
+    .containerSize {
+        grid-template-columns: repeat(4, 18vw);
+        grid-template-rows: repeat(3, 30vw);
+    }
+}
+
+@media (min-width: 600px) {
+    .buttonSize {
+        width: 10vw;
+        height: 4vw;
+        font-size: 1.8vw;
+    }
+
+    .cardSize {
+        width: 12vw;
+        height: 18vw;
+
+    }
+
+    .containerSize {
+        grid-template-columns: repeat(6, 12vw);
+        grid-template-rows: repeat(2, 20vw);
+    }
 }

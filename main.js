@@ -1,6 +1,6 @@
 const $startButton = document.getElementById("start-button");
 const $cardContainer = document.querySelector('#card-container');
-const $faceDownCard = $cardContainer.querySelectorAll('.faceDown');
+const $faceDownCard = $cardContainer.querySelectorAll("div");
 const $finalText = document.getElementById("finalText");
 var $initialCard = null;
 let turns = 0;
@@ -48,14 +48,13 @@ function cardConfiguration() {
 }
 
 function resetCards() {
-    
-    for(let i=0; i<$faceDownCard.length; i++) {
-        $faceDownCard[i].className = "faceDown"
+    for(let i=0; i < $faceDownCard.length; i++) {
+        $faceDownCard[i].className = "faceDown cardSize"
     }
 }
 
 function showCardContainer() {
-    $cardContainer.className = "";
+    $cardContainer.classList.remove("invisible");
 }
 
 function hidePreviousResult() {
@@ -89,7 +88,7 @@ function mapArrayWithCards(arr) {
 }
 
 function turnCardFaceUp($card) {
-    $card.className = "faceUp";
+    $card.classList.replace("faceDown", "faceUp")
 }
 
 function cardsHaveSameNumber(elem1, elem2) {
@@ -106,13 +105,13 @@ function deleteCard(elem) {
 
 function turnFaceDown(elem) {
     setTimeout(function() {
-        elem.className = "faceDown";
+        elem.classList.replace("faceUp", "faceDown");
     },1000)
 }
 
 function isThisTheEnd() {
     if($cardContainer.querySelectorAll('.faceDown').length === 0) {
         $finalText.className = "endGame";
-        $finalText.innerHTML = "Terminaste el juego en " + turns + " jugadas";
+        $finalText.innerHTML = "Terminaste el juego en " + turns + " jugadas. Apretá Start para volver a jugar";
     }
 }
