@@ -114,7 +114,7 @@ function isThisTheEnd() {
     if($cardContainer.querySelectorAll('.faceDown').length === 0) {
         $finalText1.className = "endGame";
         $finalText2.className = "endGame";
-        $finalText1.innerHTML = "Terminaste el juego en " + turns + " jugadas";
+        $finalText1.innerHTML = "Terminaste en " + turns + " jugadas";
         $finalText2.innerHTML = "Apretá Start para volver a jugar";
     }
 }
