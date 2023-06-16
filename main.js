@@ -60,6 +60,8 @@ function showCardContainer() {
 function hidePreviousResult() {
     $finalText1.className = "invisible";
     $finalText2.className = "invisible";
+    $finalText1.innerHTML = "";
+    $finalText2.innerHTML = "";
     turns = 0;
 }
 
