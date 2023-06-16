@@ -1,6 +1,7 @@
 body {
-    height: 100vh;
-    background: linear-gradient(#555, #aaa);
+    height: 95vh;
+    /* background: linear-gradient(#555, #aaa); */
+    background: #555;
 }
 
 #button-container {
