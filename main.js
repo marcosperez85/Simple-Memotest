@@ -1,6 +1,7 @@
 const $startButton = document.getElementById("start-button");
 const $cardContainer = document.querySelector('#card-container');
 const $faceDownCard = $cardContainer.querySelectorAll("div");
+const $textoFinalContainer = document.getElementById("texto-final-container");
 const $finalText1 = document.getElementById("finalText1");
 const $finalText2 = document.getElementById("finalText2");
 var $initialCard = null;
@@ -59,8 +60,9 @@ function showCardContainer() {
 }
 
 function hidePreviousResult() {
-    $finalText1.className = "invisible";
-    $finalText2.className = "invisible";
+    $textoFinalContainer.className = "invisible";
+    // $finalText1.className = "invisible";
+    // $finalText2.className = "invisible";
     turns = 0;
 }
 
@@ -113,8 +115,9 @@ function turnFaceDown(elem) {
 
 function isThisTheEnd() {
     if($cardContainer.querySelectorAll('.faceDown').length === 0) {
-        $finalText1.className = "endGame";
-        $finalText2.className = "endGame";
+        // $finalText1.className = "endGame";
+        // $finalText2.className = "endGame";
+        $textoFinalContainer.className = "";
         $finalText1.innerHTML = "Terminaste el juego en " + turns + " jugadas";
         $finalText2.innerHTML = "Apretá Start para volver a jugar";
     }

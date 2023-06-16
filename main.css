@@ -61,8 +61,15 @@ button {
     /* border: 1px solid black; */
 }
 
+#texto-final-container {
+    display: grid;
+    place-items: center;
+    margin-top: 20vw;
+}
+
 .endGame {
     font-size: 6vw;
+    color: #ddd;
 }
 
 @media (max-width: 600px) {
