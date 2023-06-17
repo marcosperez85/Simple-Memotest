@@ -1,3 +1,4 @@
+const $buttonContainer = document.getElementById("button-container");
 const $startButton = document.getElementById("start-button");
 const $cardContainer = document.querySelector('#card-container');
 const $textoInstruccion01 = document.getElementById("textoInstruccion01");
@@ -8,10 +9,10 @@ let turns = 0;
 
 $startButton.onclick = function() {
     resetCards();
-    createCards();              // Create cards and add them to the container
+    createCards();
     fillArrayWithCards();
     showCardContainer();
-    hidePreviousResult();
+    hideResultsAndButton();
     cardConfiguration();
 }
 
@@ -45,7 +46,6 @@ function handleCardSelection($card) {
 }
 
 function cardConfiguration() {
-    
     const finalArray = createArrays();
     mapArrayWithCards(finalArray);
 }
@@ -70,9 +70,8 @@ function showCardContainer() {
     $cardContainer.classList.remove("invisible");
 }
 
-function hidePreviousResult() {
-    $textoInstruccion01.className = "invisible";
-    $textoInstruccion02.className = "invisible";
+function hideResultsAndButton() {
+    $buttonContainer.className = "invisible";
     $textoInstruccion01.innerHTML = "";
     $textoInstruccion02.innerHTML = "";
     turns = 0;
@@ -127,8 +126,7 @@ function turnFaceDown(elem) {
 
 function isThisTheEnd() {
     if($cardContainer.querySelectorAll('.faceDown').length === 0) {
-        $textoInstruccion01.className = "instruccion";
-        $textoInstruccion02.className = "instruccion";
+        $buttonContainer.className = "";
         $textoInstruccion01.innerHTML = "Terminaste en " + turns + " jugadas";
         $textoInstruccion02.innerHTML = "Apretá Start para volver a jugar";
     }
