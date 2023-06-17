@@ -1,12 +1,15 @@
 const $startButton = document.getElementById("start-button");
 const $cardContainer = document.querySelector('#card-container');
-const $faceDownCard = $cardContainer.querySelectorAll("div");
 const $textoInstruccion01 = document.getElementById("textoInstruccion01");
 const $textoInstruccion02 = document.getElementById("textoInstruccion02");
+var $faceDownCard = [];
 var $initialCard = null;
 let turns = 0;
 
 $startButton.onclick = function() {
+    resetCards();
+    createCards();              // Create cards and add them to the container
+    fillArrayWithCards();
     showCardContainer();
     hidePreviousResult();
     cardConfiguration();
@@ -42,15 +45,25 @@ function handleCardSelection($card) {
 }
 
 function cardConfiguration() {
-    resetCards();
+    
     const finalArray = createArrays();
     mapArrayWithCards(finalArray);
 }
 
 function resetCards() {
-    for(let i=0; i < $faceDownCard.length; i++) {
-        $faceDownCard[i].className = "faceDown cardSize"
+    $faceDownCard.forEach(elem => elem.remove());
+}
+
+function createCards() {
+    for(let i = 1; i <= 12; i++) {
+        let $cards = document.createElement("div");
+        $cards.className = "faceDown cardSize";
+        $cardContainer.appendChild($cards);
     }
+}
+
+function fillArrayWithCards() {
+    $faceDownCard = $cardContainer.querySelectorAll("div");
 }
 
 function showCardContainer() {
